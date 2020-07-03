@@ -19,28 +19,28 @@
 
     <script>
 
-        const lstFruit = document.getElementById("lstDate")
+        const lstDate = document.getElementById("lstDate")
         //const addFruit = document.getElementById("btnAdd")
         //const txtFruit = document.getElementById("txtFruit")
 
         fetch("http://localhost:8882/dates")
-        //.then(response => response.json())
-        //.then(jsonResponse => jsonResponse.forEach(fruit => {
+        .then(response => response.json())
+        .then(jsonResponse => jsonResponse.forEach(date => {
 
-            //let o = document.createElement("option")
-            //o.textContent = fruit
-            //lstFruit.appendChild(o)
+            let o = document.createElement("option")
+            o.textContent = date
+            lstDate.appendChild(o)
 
-        //}))
+        }))
 
 
-        addFruit.addEventListener("click", e => {
-                let fruit = txtFruit.value;
-                fetch(`http://localhost:8882/list?fruit=${fruit}`, {"method" : "POST"})
-                .then(response => response.json())
-                .then(jsonResponse => alert(jsonResponse.message))
+        //addFruit.addEventListener("click", e => {
+             //   let fruit = txtFruit.value;
+              //  fetch(`http://localhost:8882/list?fruit=${fruit}`, {"method" : "POST"})
+              //  .then(response => response.json())
+              //  .then(jsonResponse => alert(jsonResponse.message))
 
-        })
+        //})
 
     </script>
 
