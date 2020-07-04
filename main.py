@@ -3,9 +3,10 @@ import tornado.ioloop
 import json
 
 
+
 class mainRequestHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("main.html")
+        self.render("home.html")
 
 
 class listRequestHandler(tornado.web.RequestHandler):
@@ -25,8 +26,10 @@ class listRequestHandler(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     app = tornado.web.Application([
+        (r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": "./assets"},),
         (r"/", mainRequestHandler),
-        (r"/dates", listRequestHandler)
+        (r"/dates", listRequestHandler),
+
     ])
 
     port = 8882
